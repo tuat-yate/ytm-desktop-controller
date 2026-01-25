@@ -5,8 +5,5 @@ node_modules/
 *.sdPlugin/bin
 *.sdPlugin/logs
 
-# Build files
-dist/
-
 # macOS
 .DS_Store
