@@ -1,0 +1,18 @@
+# Node.js
+node_modules/
+package.json
+package-lock.json
+
+# TypeScript
+src/
+tsconfig.json
+
+# Rollup
+rollup.config.mjs
+
+# Git
+.git/
+.gitignore
+
+# macOS
+.DS_Store

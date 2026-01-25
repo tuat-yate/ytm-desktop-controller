@@ -1,0 +1,191 @@
+{
+	"Name": "ytm-desktop controller",
+	"Version": "0.1.0.0",
+	"Author": "Hayate Kojima",
+	"Actions": [
+		{
+			"Name": "Add Playlist to Queue",
+			"UUID": "jp.hayate-kojima.ytm-desktop-controller.add-playlist-to-queue",
+			"Icon": "imgs/actions/add-playlist/icon",
+			"Tooltip": "Add playlist items to queue",
+			"PropertyInspectorPath": "ui/add-playlist-to-queue.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/add-playlist/key",
+					"TitleAlignment": "middle"
+				}
+			]
+		},
+		{
+			"Name": "Add Track to Queue",
+			"UUID": "jp.hayate-kojima.ytm-desktop-controller.add-track-to-queue",
+			"Icon": "imgs/actions/add-track/icon",
+			"Tooltip": "Add track items to queue",
+			"PropertyInspectorPath": "ui/add-track-to-queue.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/add-track/key",
+					"TitleAlignment": "middle"
+				}
+			]
+		},
+		{
+			"Name": "Like",
+			"UUID": "jp.hayate-kojima.ytm-desktop-controller.like",
+			"Icon": "imgs/actions/like/icon",
+			"Tooltip": "Like track",
+			"PropertyInspectorPath": "ui/rate.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/like/key",
+					"TitleAlignment": "middle"
+				}
+			]
+		},
+		{
+			"Name": "Dislike",
+			"UUID": "jp.hayate-kojima.ytm-desktop-controller.dislike",
+			"Icon": "imgs/actions/dislike/icon",
+			"Tooltip": "Dislike track",
+			"PropertyInspectorPath": "ui/rate.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/dislike/key",
+					"TitleAlignment": "middle"
+				}
+			]
+		},
+		{
+			"Name": "Toggle Play",
+			"UUID": "jp.hayate-kojima.ytm-desktop-controller.toggle-play",
+			"Icon": "imgs/actions/toggle-play/icon",
+			"Tooltip": "Toggle play/pause",
+			"PropertyInspectorPath": "ui/playback.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/toggle-play/key",
+					"TitleAlignment": "middle"
+				}
+			]
+		},
+		{
+			"Name": "Next",
+			"UUID": "jp.hayate-kojima.ytm-desktop-controller.next",
+			"Icon": "imgs/actions/next/icon",
+			"Tooltip": "Next track",
+			"PropertyInspectorPath": "ui/playback.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/next/key",
+					"TitleAlignment": "middle"
+				}
+			]
+		},
+		{
+			"Name": "Previous",
+			"UUID": "jp.hayate-kojima.ytm-desktop-controller.previous",
+			"Icon": "imgs/actions/previous/icon",
+			"Tooltip": "Previous track",
+			"PropertyInspectorPath": "ui/playback.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/previous/key",
+					"TitleAlignment": "middle"
+				}
+			]
+		},
+		{
+			"Name": "Artwork Previous",
+			"UUID": "jp.hayate-kojima.ytm-desktop-controller.artwork",
+			"Icon": "imgs/actions/artwork/icon",
+			"Tooltip": "Previous artwork",
+			"PropertyInspectorPath": "ui/artwork.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/artwork/key",
+					"TitleAlignment": "middle"
+				}
+			]
+		},
+		{
+			"Name": "Go Forward",
+			"UUID": "jp.hayate-kojima.ytm-desktop-controller.go-forward",
+			"Icon": "imgs/actions/go-forward/icon",
+			"Tooltip": "Go forward",
+			"PropertyInspectorPath": "ui/go-forward-back.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/go-forward/key",
+					"TitleAlignment": "middle"
+				}
+			]
+		},
+		{
+			"Name": "Go Back",
+			"UUID": "jp.hayate-kojima.ytm-desktop-controller.go-back",
+			"Icon": "imgs/actions/go-back/icon",
+			"Tooltip": "Go back",
+			"PropertyInspectorPath": "ui/go-forward-back.html",
+			"Controllers": [
+				"Keypad"
+			],
+			"States": [
+				{
+					"Image": "imgs/actions/go-back/key",
+					"TitleAlignment": "middle"
+				}
+			]
+		}
+	],
+	"Category": "ytm-desktop controller",
+	"CategoryIcon": "imgs/plugin/category-icon",
+	"CodePath": "bin/plugin.js",
+	"Description": "This plugin allows you to control YouTube Music with pear-desktop (previous name: th-ch/ytm-desktop). For detailed instructions, please refer to https://github.com/tuat-yate/ytm-desktop-controller.",
+	"Icon": "imgs/plugin/marketplace",
+	"SDKVersion": 3,
+	"Software": {
+		"MinimumVersion": "6.9"
+	},
+	"OS": [
+		{
+			"Platform": "mac",
+			"MinimumVersion": "12"
+		},
+		{
+			"Platform": "windows",
+			"MinimumVersion": "10"
+		}
+	],
+	"Nodejs": {
+		"Version": "20",
+		"Debug": "enabled"
+	},
+	"UUID": "jp.hayate-kojima.ytm-desktop-controller"
+}
