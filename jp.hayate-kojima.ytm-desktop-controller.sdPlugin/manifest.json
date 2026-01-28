@@ -116,7 +116,7 @@
 			]
 		},
 		{
-			"Name": "Artwork Previous",
+			"Name": "Artwork Preview",
 			"UUID": "jp.hayate-kojima.ytm-desktop-controller.artwork",
 			"Icon": "imgs/actions/artwork/icon",
 			"Tooltip": "Previous artwork",
@@ -165,10 +165,10 @@
 		}
 	],
 	"Category": "ytm-desktop controller",
-	"CategoryIcon": "imgs/plugin/category-icon",
+	"CategoryIcon": "imgs/plugin/icon",
 	"CodePath": "bin/plugin.js",
 	"Description": "This plugin allows you to control YouTube Music with pear-desktop (previous name: th-ch/ytm-desktop). For detailed instructions, please refer to https://github.com/tuat-yate/ytm-desktop-controller.",
-	"Icon": "imgs/plugin/marketplace",
+	"Icon": "imgs/plugin/icon",
 	"SDKVersion": 3,
 	"Software": {
 		"MinimumVersion": "6.9"

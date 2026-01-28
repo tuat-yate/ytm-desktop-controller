@@ -1,6 +1,6 @@
 # ytm-desktop controller
 
-![](jp.hayate-kojima.ytm-desktop-controller.sdPlugin/imgs/cover.png)
+![](assets/cover.png)
 
 This streamdeck plugin allows you to control YouTube Music with [pear-desktop](https://github.com/pear-devs/pear-desktop) (previous name: th-ch/ytm-desktop). 
 
