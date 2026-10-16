@@ -9,6 +9,15 @@ This streamdeck plugin allows you to control YouTube Music with [pear-desktop](h
 [![Stars](https://img.shields.io/github/stars/tuat-yate/ytm-desktop-controller)](https://github.com/tuat-yate/ytm-desktop-controller/stargazers)
 [![Watchers](https://img.shields.io/github/watchers/tuat-yate/ytm-desktop-controller)](https://github.com/tuat-yate/ytm-desktop-controller/watchers)
 
+> [!WARNING]
+> **Known issue: for some users, Previous / Next, Like / Dislike and Set Volume do nothing.**
+> This is a bug in pear-desktop, not in this plugin: the API Server accepts these requests but the app does not act on
+> them, so the keys show no error. For the same reason, Add Track / Playlist to Queue still queues the songs, but does
+> not jump to them when something is already playing. Toggle Play, Go Forward / Go Back and Artwork Preview still work.
+> It is tracked upstream in [pear-devs/pear-desktop#4728](https://github.com/pear-devs/pear-desktop/issues/4728)
+> (see also [#6](https://github.com/tuat-yate/ytm-desktop-controller/issues/6)). This notice will be removed once a
+> pear-desktop release fixes it.
+
 ## Setup
 
 > [!IMPORTANT]

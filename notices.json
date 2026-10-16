@@ -1,0 +1,19 @@
+{
+	"notices": [
+		{
+			"id": "pear-desktop-4728",
+			"level": "warning",
+			"message": "Known pear-desktop issue: for some users, Previous / Next, Like / Dislike and Set Volume do nothing, and Add to Queue does not jump to the added songs while something is playing. This is not a plugin bug; it will work again once pear-desktop is fixed.",
+			"url": "https://github.com/pear-devs/pear-desktop/issues/4728",
+			"actions": [
+				"next",
+				"previous",
+				"like",
+				"dislike",
+				"set-volume",
+				"add-track-to-queue",
+				"add-playlist-to-queue"
+			]
+		}
+	]
+}

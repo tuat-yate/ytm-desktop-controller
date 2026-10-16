@@ -1,4 +1,6 @@
-import { DidReceiveGlobalSettingsEvent, DidReceiveSettingsEvent, KeyDownEvent, SingletonAction, streamDeck, WillAppearEvent, WillDisappearEvent } from "@elgato/streamdeck";
+import { DidReceiveGlobalSettingsEvent, DidReceiveSettingsEvent, KeyDownEvent, SendToPluginEvent, SingletonAction, streamDeck, WillAppearEvent, WillDisappearEvent } from "@elgato/streamdeck";
+import type { JsonValue } from "@elgato/utils";
+import { getNotices } from "../notices";
 import { getPlayerFeed, PlayerFeed, SongInfo } from "../player-feed";
 
 export type BaseSettings = {
@@ -46,6 +48,7 @@ type RenderState<T extends BaseSettings> = {
 
 	offlineSince?: number;      // API に届かなくなった時刻(猶予を見てから警告する)
 	showingWarning: boolean;    // 警告画像を出しているか
+	statusOnline?: boolean;     // 設定画面に最後に伝えた接続状態
 };
 
 // 描画パラメータ
@@ -103,6 +106,29 @@ export abstract class BaseAction<T extends BaseSettings> extends SingletonAction
 			st.lastDataAt = 0;       // 次tickで即再評価(テンプレート変更などを反映)
 			st.lastImageSent = undefined;
 		}
+	}
+
+	// 設定画面(setup-link.js)からの問い合わせ。接続状態とお知らせを返す。
+	override async onSendToPlugin(ev: SendToPluginEvent<JsonValue, T>): Promise<void> {
+		const payload = ev.payload as { event?: string } | null;
+		if (payload?.event === "getStatus") {
+			await this.sendStatus(ev.action.id);
+		}
+	}
+
+	// 開いている設定画面に接続状態とお知らせを送る。接続状態はキーの警告表示と同じ判定
+	// (猶予を過ぎても届かなければ未接続)にして、キーと設定画面で食い違わないようにする。
+	private async sendStatus(actionId: string): Promise<void> {
+		const st = this.states.get(actionId);
+		const online = !st?.showingWarning;
+		if (st) {
+			st.statusOnline = online;
+		}
+		const notices = await getNotices(this.manifestId);
+		if (streamDeck.ui.action?.id !== actionId) {
+			return; // 取得中に別のキーへ移った
+		}
+		await streamDeck.ui.sendToPropertyInspector({ event: "status", online, notices });
 	}
 
 	// アートワーク表示に関係なく1秒ごとのポーリングを続けるか。
@@ -427,7 +453,13 @@ export abstract class BaseAction<T extends BaseSettings> extends SingletonAction
 
 		// API に届かない状態が続いたらキーに警告を出す(アートワーク表示の有無に関わらず)。
 		// 何をしても無反応になるため、セットアップ漏れやアプリ未起動に気付けるようにする。
-		if (this.applyOfflineWarning(ev, st, feed, now)) {
+		const offline = this.applyOfflineWarning(ev, st, feed, now);
+
+		// 設定画面を開いている間に接続状態が変わったら、注意書きの表示を切り替えさせる。
+		if (st.statusOnline !== undefined && st.statusOnline === offline && streamDeck.ui.action?.id === ev.action.id) {
+			void this.sendStatus(ev.action.id);
+		}
+		if (offline) {
 			return;
 		}
 
